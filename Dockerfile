@@ -5,7 +5,8 @@ FROM opensuse/leap
 VOLUME [ "/var/log", "/var/cache" ]
 
 # Postfix's start script needs /usr/bin/hostname.
-RUN	zypper in --no-recommends -y postfix hostname && zypper clean -a
+# You might need busybox for syslogd replacement.
+RUN zypper in --no-recommends -y postfix hostname busybox && zypper clean -a
 
 COPY ./start-postfix /
 ENTRYPOINT [ "/start-postfix" ]
