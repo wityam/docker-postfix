@@ -1,0 +1,6 @@
+#!/bin/sh
+
+/etc/postfix/system/config_postfix
+/etc/postfix/system/update_chroot
+/etc/postfix/system/update_postmaps
+exec /usr/sbin/postfix start-fg
